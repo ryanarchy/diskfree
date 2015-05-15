@@ -3,6 +3,7 @@
 import subprocess
 from PIL import Image, ImageDraw, ImageFont
 
+#TODO: separate globals into classes, resolution selection and sizing of graphic elements should be housed in it's own class, paths in a separate
 XRES = 1920
 YRES = 1080
 CENTER = (XRES/2, YRES/2)
@@ -22,6 +23,7 @@ device, size, used, available, percent, mountpoint = output.split("\n")[1].split
 pieArc = int((float(percent[:-1])/100) * 360)
 
 # set up our font for use
+#TODO: change this so that it searches for font classes, or at least searches for the specified font name
 font = ImageFont.truetype("/usr/share/fonts/truetype/droid/DroidSans.ttf", 24)
 
 im = Image.new("RGB", (XRES, YRES), "black")
